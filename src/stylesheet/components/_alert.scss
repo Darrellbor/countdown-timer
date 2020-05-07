@@ -1,0 +1,92 @@
+.Alert {
+  position: fixed;
+  z-index: 200;
+  top: 40px;
+  right: 50px;
+
+  &__inner {
+    background-color: $brand-color-dark;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 300px;
+    min-width: 150px;
+    text-align: center;
+  }
+
+  &__timeup {
+    background-color: $color-danger !important;
+  }
+
+  &__open {
+    animation-name: alertOpen;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-direction: normal;
+    animation-fill-mode: backwards;
+  }
+
+  &__close {
+    animation-name: alertClose;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes alertOpen {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+
+  25% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+
+  75% {
+    transform: scale(1.9);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes alertClose {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  25% {
+    transform: scale(1.9);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+
+  75% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: scale(0.1);
+    opacity: 0;
+    display: none;
+  }
+}

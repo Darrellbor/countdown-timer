@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Controls from "../../components/Controls";
 import SpeedControls from "../../components/SpeedControls";
+import Alert from "../../components/Alert";
 
 //icons
 import Pause from "../../components/Icons/pause";
@@ -15,7 +16,11 @@ class Countdown extends Component {
     second: 0,
     clicked: "None",
     speedClicked: "None",
+    activeControl: "None",
     activeSpeed: "1X",
+    isAlertOpen: false,
+    alertContent: "Welcome",
+    isTimeUp: false,
   };
 
   handleSetMinute = (minute) => {
@@ -23,7 +28,7 @@ class Countdown extends Component {
   };
 
   handleOnPauseClick = () => {
-    this.setState({ clicked: "Pause" });
+    this.setState({ clicked: "Pause", activeControl: "Paused" });
 
     setTimeout(() => {
       this.setState({ clicked: "None" });
@@ -34,13 +39,17 @@ class Countdown extends Component {
     this.setState({ speedClicked: speed, activeSpeed: speed });
 
     setTimeout(() => {
-      this.setState({ speedClicked: "None" });
+      this.setState({ speedClicked: "None", isAlertOpen: !this.state.isAlertOpen });
     }, 1000);
   };
 
   render() {
     return (
       <div className="Countdown">
+        <Alert isOpen={this.state.isAlertOpen} isTimeUp={this.state.isTimeUp}>
+          {this.state.alertContent}
+        </Alert>
+
         <Header />
         <div className="Countdown__body">
           <Controls
