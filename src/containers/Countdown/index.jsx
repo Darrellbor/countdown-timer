@@ -244,7 +244,7 @@ class Countdown extends Component {
     this.setState({ speedClicked: speed, activeSpeed: speed });
 
     this.terminateCountdown();
-    this.initializeCountdown(speed);
+    this.initializeCountdown(speed, true);
 
     setTimeout(() => {
       this.setState({ speedClicked: "None" });
