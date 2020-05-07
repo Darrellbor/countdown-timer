@@ -6,14 +6,15 @@ import Footer from "../../components/Footer";
 import Controls from "../../components/Controls";
 import SpeedControls from "../../components/SpeedControls";
 import Alert from "../../components/Alert";
+import Counter from "../../components/Counter";
 
 //icons
 import Pause from "../../components/Icons/pause";
 
 class Countdown extends Component {
   state = {
-    minute: 0,
-    second: 0,
+    minute: "00",
+    second: "00",
     clicked: "None",
     speedClicked: "None",
     activeControl: "None",
@@ -21,7 +22,15 @@ class Countdown extends Component {
     isAlertOpen: false,
     alertContent: "Welcome",
     isTimeUp: false,
+    isTextBlinking: false,
+    isTextRed: false
   };
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({ second: (this.state.second * 1) + 1});
+    }, 1000);
+  }
 
   handleSetMinute = (minute) => {
     this.setState({ minute });
@@ -39,7 +48,7 @@ class Countdown extends Component {
     this.setState({ speedClicked: speed, activeSpeed: speed });
 
     setTimeout(() => {
-      this.setState({ speedClicked: "None", isAlertOpen: !this.state.isAlertOpen });
+      this.setState({ speedClicked: "None" });
     }, 1000);
   };
 
@@ -66,6 +75,13 @@ class Countdown extends Component {
           >
             1X
           </SpeedControls>
+          <Counter
+            minute={this.state.minute}
+            second={this.state.second}
+            isTextRed={this.state.isTextRed}
+            isTextBlinking={this.state.isTextBlinking}
+            isTimeUp={this.state.isTimeUp}
+          />
         </div>
         <Footer onStart={(minute) => this.handleSetMinute(minute)} />
       </div>

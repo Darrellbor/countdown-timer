@@ -1,0 +1,61 @@
+.Counter {
+  color: $brand-color-dark;
+
+  &__inner {
+    display: flex;
+    font-size: 200px;
+  }
+
+  &__blinking {
+    animation: blinkingText 0.8s infinite;
+  }
+
+  &__textred {
+    color: $color-danger !important;
+  }
+
+  &__changed {
+    animation-name: counterChange;
+    animation-duration: .4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: backwards;
+  }
+}
+
+@keyframes blinkingText {
+  0% {
+    color: $color-danger;
+  }
+  49% {
+    color: transparent;
+  }
+  50% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: $color-danger;
+  }
+}
+
+@keyframes counterChange {
+  0% {
+    transform: scale(0.7);
+  }
+
+  25% {
+    transform: scale(0.8);
+  }
+
+  75% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
