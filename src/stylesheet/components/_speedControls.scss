@@ -1,0 +1,35 @@
+.SpeedControls {
+  max-width: 100px;
+  transition: all .5s ease;
+
+  &__inner {
+    border: 2px solid $brand-color;
+    border-radius: 5px;
+    max-width: 100px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #282c3444;
+      color: $brand-color-dark;
+    }
+  }
+
+  &__active {
+    & .SpeedControls__inner {
+      background-color: $brand-color-dark;
+      border: 2px solid $brand-color-dark;
+      color: #fff;
+    }
+  }
+
+  &__clicked {
+    animation-name: clicked;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: forwards;
+  }
+}

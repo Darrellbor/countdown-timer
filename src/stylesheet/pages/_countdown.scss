@@ -1,3 +1,6 @@
 .Countdown {
-  min-height: 100%;
+  &__body {
+    min-height: 500px;
+    padding: 30px;
+  }
 }
