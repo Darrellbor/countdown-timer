@@ -21,9 +21,9 @@ const Controls = (props: ControlsProps) => {
       onClick={props.onClick}
     >
       <div className="Controls__inner">
-        {props.textPos === "left" && <h4>{props.text}</h4>}
+        {props.textPos === "left" && <h5>{props.text}</h5>}
         <span>{hover ? props.hoverIcon : props.icon}</span>
-        {props.textPos === "right" && <h4>{props.text}</h4>}
+        {props.textPos === "right" && <h5>{props.text}</h5>}
       </div>
     </div>
   );

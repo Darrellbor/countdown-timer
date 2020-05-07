@@ -10,9 +10,9 @@
   &__inner {
     display: flex;
 
-    & h4 {
+    & h5 {
       color: #fff;
-      margin-top: 3px;
+      margin-top: 6px;
       display: none;
       transition-delay: 0.5s;
     }
@@ -24,7 +24,7 @@
     border-radius: 300px !important;
 
     & .Controls__inner {
-      & h4 {
+      & h5 {
         display: block !important;
         margin-left: 10px;
         margin-right: 10px;
