@@ -21,85 +21,12 @@
 
   &--brand {
     background-color: $brand-color;
-    color: $brand-color-alt;
+    color: #fff;
     border: none;
 
     &:hover {
-      background-color: $brand-color-lighter !important;
-      color: $brand-color !important;
-    }
-
-    &--link {
-      background-color: transparent;
-      color: $brand-color;
-      border: none;
-
-      &:hover {
-        background-color: $brand-color-lighter !important;
-      }
-    }
-
-    &--reverse {
-      background-color: $brand-color-lighter;
-      color: $brand-color;
-      border: none;
-
-      &:hover {
-        background-color: $brand-color !important;
-        color: $brand-color-alt !important;
-      }
-    }
-  }
-
-  &--brand-alt {
-    background-color: $brand-color-alt;
-    color: $brand-color;
-    border: none;
-
-    &:hover {
-      background-color: $brand-color-alt-lighter !important;
-    }
-
-    &-account {
-      background-color: $brand-color-alt;
-      color: $brand-color;
-      border: none;
-
-      &:hover {
-        background-color: $brand-color-alt-lighter !important;
-        color: #fff !important;
-      }
-    }
-
-    &--link {
-      background-color: transparent;
-      color: $brand-color;
-      border: none;
-
-      &:hover {
-        background-color: $brand-color-alt-lighter !important;
-      }
-    }
-
-    &--reverse {
-      background-color: $brand-color-alt-lighter;
-      color: $brand-color;
-      border: none;
-
-      &:hover {
-        background-color: $brand-color-alt !important;
-      }
-
-      &-account {
-        background-color: $brand-color-alt-lighter;
-        color: #fff;
-        border: none;
-
-        &:hover {
-          background-color: $brand-color-alt !important;
-          color: $brand-color !important;
-        }
-      }
+      background-color: $brand-color-dark !important;
+      color: #fff !important;
     }
   }
 

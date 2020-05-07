@@ -1,2 +1,22 @@
 // FONT FAMILY **/
 $font-family-base: 'Raleway', sans-serif;
+
+// BREAKPOINTS **/
+$breakpoint-tiny-screens: 375px;
+$breakpoint-small-screens: 450px;
+$breakpoint-tablet: 600px;
+$breakpoint-desktop: 1000px;
+$breakpoint-bs-sm: 576px;
+$breakpoint-bs-md: 768px;
+$breakpoint-bs-lg: 992px;
+$breakpoint-bs-xl: 1200px;
+
+// COLORS **/
+$brand-color: #7d89a5;
+$brand-color-dark: #282c34;
+$brand-text-color: #a7a7a7;
+$brand-input-border: #bbc4c3;
+$brand-input-disabled: #c4c4c446;
+$brand-input-placeholder: #164e4777;
+$color-success: #41b661;
+$color-danger: #b80202;

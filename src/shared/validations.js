@@ -9,11 +9,11 @@ export const checkValidity = (value, rules) => {
   }
 
   if (rules.minLength) {
-    isValid = value.length >= rules.minLength && isValid;
+    isValid = value >= rules.minLength && isValid;
   }
 
   if (rules.maxLength) {
-    isValid = value.length <= rules.maxLength && isValid;
+    isValid = value <= rules.maxLength && isValid;
   }
 
   if (rules.isNumeric) {

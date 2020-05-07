@@ -15,6 +15,11 @@
 //layouts
 
 //components
+@import "components/header";
+@import "components/footer";
+@import "components/label";
+@import "components/input";
+@import "components/button";
 
 //pages
-
+@import "pages/countdown";

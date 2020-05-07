@@ -4,7 +4,7 @@
   align-items: center;
   width: 100%;
   border-radius: 5px;
-  transition: all .25s ease-in-out;
+  transition: all .55s ease-in-out;
 
   &:focus {
     // border: 1px solid $color-brand-purple;
@@ -75,10 +75,10 @@
   }
 
   &--invalid {
-    border: 1px solid $color-danger !important;
+    border: 2px solid $color-danger !important;
 
     &:focus {
-      border: 1px solid $color-danger !important;
+      border: 2px solid $color-danger !important;
     }
   }
 
@@ -89,10 +89,10 @@
       }
       
       & .input {
-        border: 1px solid $brand-input-border;
+        border: 2px solid $brand-input-border;
 
         &--focus {
-          border: 1px solid $brand-color;
+          border: 2px solid $brand-color;
         }
 
         &__prepend {
