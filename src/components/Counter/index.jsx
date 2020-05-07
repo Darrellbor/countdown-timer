@@ -4,6 +4,7 @@ import React from "react";
 type CounterProps = {
   minute: string,
   second: string,
+  isPaused: Boolean,
   isTextBlinking: Boolean,
   isTextRed: Boolean,
   isTimeUp: Boolean,
@@ -21,10 +22,7 @@ const Counter = (props: CounterProps) => {
         <div className="Counter__colon">:</div>
         <div
           className={` ${
-            props.isTextBlinking &&
-            props.isTimeUp &&
-            props.minute !== "" &&
-            props.second !== ""
+            !props.isPaused
               ? "Counter__second"
               : "Counter__second Counter__changed"
           }`}

@@ -30,42 +30,221 @@ class Countdown extends Component {
     isTextRed: false,
   };
 
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ second: this.state.second * 1 + 1 });
-    }, 1000);
-  }
-
   handleSetMinute = (minute) => {
-    this.setState({ minute });
+    this.setState({
+      minute,
+      second: "00",
+      isAlertOpen: false,
+      isTextRed: false,
+      isTextBlinking: false,
+      isTimeUp: false,
+      activeControl: "None",
+      activeSpeed: "1X",
+    });
+    this.terminateCountdown();
+
+    setTimeout(() => {
+      this.initializeCountdown();
+    }, 600);
+  };
+
+  initializeCountdown = (speed = "1X", wasPaused = false) => {
+    //set state and variables
+    let state = this.state;
+    let halfSecondExist = false;
+    let halfMinute = 0;
+    let timerSpeed = 1000;
+
+    if (!wasPaused) {
+      //check for half time
+      if ((state.minute * 1) % 2 !== 0) halfSecondExist = true;
+
+      if (state.minute === "1" || state.minute === 1) halfMinute = "00";
+      else halfMinute = Math.floor((state.minute * 1) / 2);
+
+      //setState
+      this.setState({
+        halfMinute,
+        halfSecond: halfSecondExist ? "30" : "00",
+      });
+    }
+
+    //check speed
+    if (speed === "0.5X") {
+      timerSpeed = 2000;
+    } else if (speed === "-1X") {
+      timerSpeed = 4000;
+    }
+
+    this.timer = setInterval(() => {
+      //recall state each pass round
+      state = this.state;
+
+      //check for timeup
+      if (
+        (state.minute === "00" && state.second === "00") ||
+        (state.minute * 1 <= 0 && state.second * 1 <= 0)
+      ) {
+        this.setState({
+          isTimeUp: true,
+          isAlertOpen: true,
+          alertContent: "Time's Up!",
+          isTextBlinking: false,
+        });
+        this.terminateCountdown();
+        return;
+      }
+
+      let minute = this.state.minute * 1;
+      let second = this.state.second * 1;
+
+      if (state.activeSpeed === "1.5X") {
+        //check for less than 0 second
+        if (second - 4 <= 0) {
+          second = "58";
+          minute -= 1;
+
+          if (minute < 0) {
+            this.setState({
+              minute: "00",
+              second: "00",
+              isTimeUp: true,
+              isAlertOpen: true,
+              alertContent: "Time's Up!",
+              isTextBlinking: false,
+            });
+            this.terminateCountdown();
+            return;
+          }
+        } else {
+          second -= 4;
+        }
+      } else if (state.activeSpeed === "2X") {
+        //check for less than 0 second
+        if (second - 6 <= 0) {
+          second = "59";
+          minute -= 1;
+
+          if (minute < 0) {
+            this.setState({
+              minute: "00",
+              second: "00",
+              isTimeUp: true,
+              isAlertOpen: true,
+              alertContent: "Time's Up!",
+              isTextBlinking: false,
+            });
+            this.terminateCountdown();
+            return;
+          }
+        } else {
+          second -= 6;
+        }
+      } else {
+        //check for less than 0 second
+        if (second <= 0) {
+          second = "59";
+          minute -= 1;
+        } else {
+          second -= 1;
+        }
+      }
+
+      if (second < 10) {
+        second = "0" + second;
+      }
+
+      if (minute < 10) {
+        minute = "0" + minute;
+      }
+
+      //check for half time
+      if (
+        (minute * 1 <= state.halfMinute * 1 &&
+          second * 1 <= state.halfSecond * 1) ||
+        (state.halfSecond * 1 === 0 && minute * 1 < state.halfMinute * 1)
+      ) {
+        this.setState({
+          isAlertOpen: true,
+          alertContent: "More than halfway there!",
+        });
+      }
+
+      //check for 20 seconds and less
+      if (minute === "00" && second * 1 <= 20) {
+        this.setState({ isTextRed: true });
+      }
+
+      //check for 10 seconds and less
+      if (minute === "00" && second * 1 <= 10) {
+        this.setState({ isTextBlinking: true });
+      }
+
+      this.setState({ minute, second });
+    }, timerSpeed);
+  };
+
+  terminateCountdown = () => {
+    clearInterval(this.timer);
+  };
+
+  resetCountdown = () => {
+    this.setState({
+      isAlertOpen: false,
+      isTextRed: false,
+      isTextBlinking: false,
+      isTimeUp: false,
+      activeControl: "None",
+      activeSpeed: "1X",
+      minute: "00",
+      second: "00",
+    });
   };
 
   handleOnPauseClick = () => {
     this.setState({ clicked: "Pause", activeControl: "Paused" });
 
+    this.terminateCountdown();
+
     setTimeout(() => {
-      this.setState({ clicked: "None" });
+      this.setState({
+        clicked: "None",
+        isAlertOpen: true,
+        alertContent: "Timer Paused",
+      });
     }, 1000);
   };
 
   handleOnPlayClick = () => {
     this.setState({ clicked: "Play", activeControl: "Played" });
 
+    this.initializeCountdown(this.state.activeSpeed, true);
+
     setTimeout(() => {
-      this.setState({ clicked: "None" });
+      this.setState({ clicked: "None", isAlertOpen: false });
     }, 1000);
   };
 
   handleOnStopClick = () => {
     this.setState({ clicked: "Stop", activeControl: "Stoped" });
 
+    this.terminateCountdown();
+    this.resetCountdown();
+
     setTimeout(() => {
-      this.setState({ clicked: "None" });
+      this.setState({
+        clicked: "None",
+        isAlertOpen: true,
+        alertContent: "Timer Stoped & cleared",
+      });
     }, 1000);
   };
 
   handleOnSwitchSpeed = (speed) => {
     this.setState({ speedClicked: speed, activeSpeed: speed });
+
+    this.terminateCountdown();
+    this.initializeCountdown(speed);
 
     setTimeout(() => {
       this.setState({ speedClicked: "None" });
@@ -87,6 +266,7 @@ class Countdown extends Component {
                 icon={<Stop />}
                 hoverIcon={<Stop hover={true} />}
                 text="Stop/reset"
+                textPos="left"
                 controlClicked={this.state.clicked === "Stop"}
                 onClick={() => this.handleOnStopClick()}
               />
@@ -95,6 +275,7 @@ class Countdown extends Component {
               <Counter
                 minute={this.state.minute}
                 second={this.state.second}
+                isPaused={this.state.activeControl === "Paused"}
                 isTextRed={this.state.isTextRed}
                 isTextBlinking={this.state.isTextBlinking}
                 isTimeUp={this.state.isTimeUp}
