@@ -1,0 +1,61 @@
+.Controls {
+  border: 2px solid $brand-color;
+  border-radius: 100%;
+  max-width: 95px;
+  height: 100px;
+  padding: 30px;
+  cursor: pointer;
+  transition: all 1s ease;
+
+  &__inner {
+    display: flex;
+
+    & h4 {
+      color: #fff;
+      margin-top: 3px;
+      display: none;
+      transition-delay: 0.5s;
+    }
+  }
+
+  &:hover {
+    background-color: $brand-color-dark;
+    max-width: max-content !important;
+    border-radius: 300px !important;
+
+    & .Controls__inner {
+      & h4 {
+        display: block !important;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__clicked {
+    animation-name: clicked;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes clicked {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(0.6);
+  }
+
+  75% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
