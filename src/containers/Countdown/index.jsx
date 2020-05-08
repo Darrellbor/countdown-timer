@@ -335,7 +335,7 @@ class Countdown extends Component {
                 active={this.state.activeSpeed === "-1X"}
                 onClick={() => this.handleOnSwitchSpeed("-1X")}
               >
-                -1X
+                - 1X
               </SpeedControls>
             </div>
           </div>
