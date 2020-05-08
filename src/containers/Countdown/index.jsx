@@ -13,6 +13,9 @@ import Pause from "../../components/Icons/pause";
 import Play from "../../components/Icons/play";
 import Stop from "../../components/Icons/stop";
 
+//sound
+import CountdownOverSound from "../../assets/sounds/countdown-complete.mp3";
+
 class Countdown extends Component {
   state = {
     minute: "00",
@@ -257,6 +260,13 @@ class Countdown extends Component {
         <Alert isOpen={this.state.isAlertOpen} isTimeUp={this.state.isTimeUp}>
           {this.state.alertContent}
         </Alert>
+
+        {this.state.isTimeUp && (
+          <audio src={CountdownOverSound} controls autoPlay hidden>
+            <source src={CountdownOverSound} type="audio/mp3" />
+            Your browser does not support the audio element.
+          </audio>
+        )}
 
         <Header />
         <div className="Countdown__body">
