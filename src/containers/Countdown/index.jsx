@@ -34,16 +34,7 @@ class Countdown extends Component {
   };
 
   handleSetMinute = (minute) => {
-    this.setState({
-      minute,
-      second: "00",
-      isAlertOpen: false,
-      isTextRed: false,
-      isTextBlinking: false,
-      isTimeUp: false,
-      activeControl: "None",
-      activeSpeed: "1X",
-    });
+    this.resetCountdown(minute);
     this.terminateCountdown();
 
     setTimeout(() => {
@@ -88,12 +79,7 @@ class Countdown extends Component {
         (state.minute === "00" && state.second === "00") ||
         (state.minute * 1 <= 0 && state.second * 1 <= 0)
       ) {
-        this.setState({
-          isTimeUp: true,
-          isAlertOpen: true,
-          alertContent: "Time's Up!",
-          isTextBlinking: false,
-        });
+        this.setTimedOut();
         this.terminateCountdown();
         return;
       }
@@ -108,14 +94,7 @@ class Countdown extends Component {
           minute -= 1;
 
           if (minute < 0) {
-            this.setState({
-              minute: "00",
-              second: "00",
-              isTimeUp: true,
-              isAlertOpen: true,
-              alertContent: "Time's Up!",
-              isTextBlinking: false,
-            });
+            this.setTimedOut();
             this.terminateCountdown();
             return;
           }
@@ -129,14 +108,7 @@ class Countdown extends Component {
           minute -= 1;
 
           if (minute < 0) {
-            this.setState({
-              minute: "00",
-              second: "00",
-              isTimeUp: true,
-              isAlertOpen: true,
-              alertContent: "Time's Up!",
-              isTextBlinking: false,
-            });
+            this.setTimedOut();
             this.terminateCountdown();
             return;
           }
@@ -191,7 +163,18 @@ class Countdown extends Component {
     clearInterval(this.timer);
   };
 
-  resetCountdown = () => {
+  setTimedOut = () => {
+    this.setState({
+      minute: "00",
+      second: "00",
+      isTimeUp: true,
+      isAlertOpen: true,
+      alertContent: "Time's Up!",
+      isTextBlinking: false,
+    });
+  }
+
+  resetCountdown = (minute = "00") => {
     this.setState({
       isAlertOpen: false,
       isTextRed: false,
@@ -199,7 +182,7 @@ class Countdown extends Component {
       isTimeUp: false,
       activeControl: "None",
       activeSpeed: "1X",
-      minute: "00",
+      minute,
       second: "00",
     });
   };
