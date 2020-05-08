@@ -7,17 +7,19 @@ import Controls from "../../components/Controls";
 import SpeedControls from "../../components/SpeedControls";
 import Alert from "../../components/Alert";
 import Counter from "../../components/Counter";
+import ThemeController from "../../components/ThemeController";
 
 //icons
-import Pause from "../../components/Icons/pause";
-import Play from "../../components/Icons/play";
-import Stop from "../../components/Icons/stop";
+import Pause from "../../components/Icons/Pause";
+import Play from "../../components/Icons/Play";
+import Stop from "../../components/Icons/Stop";
 
 //sound
 import CountdownOverSound from "../../assets/sounds/countdown-complete.mp3";
 
 class Countdown extends Component {
   state = {
+    theme: "Dark",
     minute: "00",
     second: "00",
     halfMinute: "00",
@@ -31,6 +33,23 @@ class Countdown extends Component {
     isTimeUp: false,
     isTextBlinking: false,
     isTextRed: false,
+  };
+
+  componentDidMount() {
+    this.initializeTheme();
+  }
+
+  initializeTheme = () => {
+    const theme = localStorage.getItem("theme");
+    if (theme) this.setState({ theme });
+    else localStorage.setItem("theme", "Dark");
+  };
+
+  handleSetThemeColor = (event) => {
+    const theme = event.target.dataset.setthemeto;
+    this.setState({ theme });
+    localStorage.removeItem("theme");
+    localStorage.setItem("theme", theme);
   };
 
   handleSetMinute = (minute) => {
@@ -172,7 +191,7 @@ class Countdown extends Component {
       alertContent: "Time's Up!",
       isTextBlinking: false,
     });
-  }
+  };
 
   resetCountdown = (minute = "00") => {
     this.setState({
@@ -244,6 +263,11 @@ class Countdown extends Component {
           {this.state.alertContent}
         </Alert>
 
+        <ThemeController
+          theme={this.state.theme}
+          onClick={(event) => this.handleSetThemeColor(event)}
+        />
+
         {this.state.isTimeUp && (
           <audio src={CountdownOverSound} controls autoPlay hidden>
             <source src={CountdownOverSound} type="audio/mp3" />
@@ -256,8 +280,8 @@ class Countdown extends Component {
           <div className="Countdown__main">
             <div className="Countdown__main__left">
               <Controls
-                icon={<Stop />}
-                hoverIcon={<Stop hover={true} />}
+                icon={<Stop theme={this.state.theme} />}
+                hoverIcon={<Stop theme={this.state.theme} hover={true} />}
                 text="Stop/reset"
                 textPos="left"
                 controlClicked={this.state.clicked === "Stop"}
@@ -277,16 +301,16 @@ class Countdown extends Component {
             <div className="Countdown__main__right">
               {this.state.activeControl === "Paused" ? (
                 <Controls
-                  icon={<Play />}
-                  hoverIcon={<Play hover={true} />}
+                  icon={<Play theme={this.state.theme} />}
+                  hoverIcon={<Play theme={this.state.theme} hover={true} />}
                   text="Resume"
                   controlClicked={this.state.clicked === "Play"}
                   onClick={() => this.handleOnPlayClick()}
                 />
               ) : (
                 <Controls
-                  icon={<Pause />}
-                  hoverIcon={<Pause hover={true} />}
+                  icon={<Pause theme={this.state.theme} />}
+                  hoverIcon={<Pause theme={this.state.theme} hover={true} />}
                   text="Pause"
                   controlClicked={this.state.clicked === "Pause"}
                   onClick={() => this.handleOnPauseClick()}

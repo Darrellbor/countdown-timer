@@ -2,8 +2,8 @@
 import React, { Fragment } from "react";
 
 //icons
-import PauseLight from "./pauseLight";
-import PauseDark from "./pauseDark";
+import PauseLight from "./PauseLight";
+import PauseDark from "./PauseDark";
 
 type PauseProps = {
   hover: boolean,

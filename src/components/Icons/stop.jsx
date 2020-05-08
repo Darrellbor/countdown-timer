@@ -2,8 +2,8 @@
 import React, { Fragment } from "react";
 
 //icons
-import StopLight from "./stopLight";
-import StopDark from "./stopDark";
+import StopLight from "./StopLight";
+import StopDark from "./StopDark";
 
 type StopProps = {
   hover: boolean,

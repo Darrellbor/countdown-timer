@@ -2,8 +2,8 @@
 import React, { Fragment } from "react";
 
 //icons
-import PlayLight from "./playLight";
-import PlayDark from "./playDark";
+import PlayLight from "./PlayLight";
+import PlayDark from "./PlayDark";
 
 type PlayProps = {
   hover: boolean,
