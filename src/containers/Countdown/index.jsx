@@ -267,14 +267,23 @@ class Countdown extends Component {
   };
 
   handleOnSwitchSpeed = (speed) => {
-    this.setState({ speedClicked: speed, activeSpeed: speed });
+    if ((this.state.minute !== "00") && (this.state.second !== "00")) {
+      this.setState({ speedClicked: speed, activeSpeed: speed });
 
-    this.terminateCountdown();
-    this.initializeCountdown(speed, true);
-
-    setTimeout(() => {
-      this.setState({ speedClicked: "None" });
-    }, 1000);
+      this.terminateCountdown();
+      this.initializeCountdown(speed, true);
+  
+      setTimeout(() => {
+        this.setState({ speedClicked: "None" });
+      }, 1000);
+    } else {
+      this.setState({ speedClicked: speed, activeSpeed: speed });
+  
+      setTimeout(() => {
+        this.setState({ speedClicked: "None" });
+      }, 1000);
+    }
+    
   };
 
   render() {

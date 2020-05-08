@@ -42,3 +42,76 @@
     }
   }
 }
+
+@media (max-width: 850px) {
+  .Countdown {
+    &__main {
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      //font-size: 100px !important;
+
+      &__center {
+        margin-top: 70px;
+      }
+
+      &__right {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-bs-sm) {
+  .Countdown {
+    &__main {
+      flex-wrap: wrap;
+
+      &__left {
+        margin-right: 0px;
+        width: 100%;
+
+        & .Controls {
+          margin: auto;
+        }
+      }
+
+      &__center {
+        margin-top: 100px;
+        width: 100%;
+
+        & .Counter {
+          &__minute {
+            margin: auto;
+          }
+
+          &__colon {
+            margin: auto;
+          }
+
+          &__second {
+            margin: auto;
+          }
+        }
+      }
+
+      &__right {
+        margin-left: 0px;
+        width: 100%;
+
+        & .Controls {
+          margin: auto;
+        }
+      }
+    }
+
+    &__speed {
+      & h4 {
+        margin-bottom: 80px;
+      }
+
+      &__inner {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

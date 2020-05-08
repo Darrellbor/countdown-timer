@@ -123,3 +123,19 @@
     transform: scale(29.9);
   }
 }
+
+@media(max-width: 850px) {
+  .Counter {
+    &__inner {
+      font-size: 100px !important;
+    }
+  }
+}
+
+@media(max-width: $breakpoint-bs-sm) {
+  .Counter {
+    &__inner {
+      font-size: 80px !important;
+    }
+  }
+}

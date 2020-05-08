@@ -70,3 +70,10 @@
     animation-fill-mode: forwards;
   }
 }
+
+
+@media (max-width: $breakpoint-bs-sm) {
+  .SpeedControls {
+    margin-bottom: 60px;
+  }
+}
