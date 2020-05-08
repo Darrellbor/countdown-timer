@@ -1,43 +1,30 @@
 //@flow
 import React, { Fragment } from "react";
 
-type stopProps = {
+//icons
+import StopLight from "./stopLight";
+import StopDark from "./stopDark";
+
+type StopProps = {
   hover: boolean,
+  theme: string
 };
 
-const stop = (props: stopProps) => {
+const Stop = (props: StopProps) => {
   return (
     <Fragment>
-      {props.hover ? (
-        <svg width="35" height="36" viewBox="0 0 35 36" fill="none">
-          <rect
-            x="0.5"
-            y="0.5"
-            width="34"
-            height="35"
-            rx="0.5"
-            stroke="white"
-          />
-        </svg>
+      {props.theme === "Dark" ? (
+        <StopDark hover={props.hover} />
       ) : (
-        <svg width="35" height="36" viewBox="0 0 35 36" fill="none">
-          <rect
-            x="0.5"
-            y="0.5"
-            width="34"
-            height="35"
-            rx="0.5"
-            fill="#282C34"
-            stroke="#282C34"
-          />
-        </svg>
+        <StopLight hover={props.hover} />
       )}
     </Fragment>
   );
 };
 
-stop.defaultProps = {
+Stop.defaultProps = {
   hover: false,
+  theme: "Dark"
 };
 
-export default stop;
+export default Stop;

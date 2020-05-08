@@ -1,60 +1,30 @@
 //@flow
 import React, { Fragment } from "react";
 
-type pauseProps = {
+//icons
+import PauseLight from "./pauseLight";
+import PauseDark from "./pauseDark";
+
+type PauseProps = {
   hover: boolean,
+  theme: string
 };
 
-const pause = (props: pauseProps) => {
+const Pause = (props: PauseProps) => {
   return (
     <Fragment>
-      {props.hover ? (
-        <svg width="31" height="36" viewBox="0 0 31 36" fill="none">
-          <rect
-            x="0.5"
-            y="0.5"
-            width="10.625"
-            height="35"
-            rx="1.5"
-            stroke="white"
-          />
-          <rect
-            x="19.875"
-            y="0.5"
-            width="10.625"
-            height="35"
-            rx="1.5"
-            stroke="white"
-          />
-        </svg>
+      {props.theme === "Dark" ? (
+        <PauseDark hover={props.hover} />
       ) : (
-        <svg width="31" height="36" viewBox="0 0 31 36" fill="none">
-          <rect
-            x="0.5"
-            y="0.5"
-            width="12.64"
-            height="35"
-            rx="1.5"
-            fill="#282C34"
-            stroke="#282C34"
-          />
-          <rect
-            x="17.86"
-            y="0.5"
-            width="12.64"
-            height="35"
-            rx="1.5"
-            fill="#282C34"
-            stroke="#282C34"
-          />
-        </svg>
+        <PauseLight hover={props.hover} />
       )}
     </Fragment>
   );
 };
 
-pause.defaultProps = {
+Pause.defaultProps = {
   hover: false,
+  theme: "Dark"
 };
 
-export default pause;
+export default Pause;
