@@ -207,7 +207,7 @@ class Countdown extends Component {
   };
 
   handleOnPauseClick = () => {
-    if ((this.state.minute !== "00") || (this.state.second !== "00")) {
+    if (this.state.minute !== "00" || this.state.second !== "00") {
       this.setState({ clicked: "Pause", activeControl: "Paused" });
 
       this.terminateCountdown();
@@ -241,12 +241,12 @@ class Countdown extends Component {
   };
 
   handleOnStopClick = () => {
-    if ((this.state.minute !== "00") || (this.state.second !== "00")) {
+    if (this.state.minute !== "00" || this.state.second !== "00") {
       this.setState({ clicked: "Stop", activeControl: "Stoped" });
 
       this.terminateCountdown();
       this.resetCountdown();
-  
+
       setTimeout(() => {
         this.setState({
           clicked: "None",
@@ -263,27 +263,28 @@ class Countdown extends Component {
         });
       }, 1000);
     }
-    
   };
 
   handleOnSwitchSpeed = (speed) => {
-    if ((this.state.minute !== "00") || (this.state.second !== "00")) {
+    if (
+      (this.state.minute !== "00" || this.state.second !== "00") &&
+      this.state.activeControl !== "Paused"
+    ) {
       this.setState({ speedClicked: speed, activeSpeed: speed });
 
       this.terminateCountdown();
       this.initializeCountdown(speed, true);
-  
+
       setTimeout(() => {
         this.setState({ speedClicked: "None" });
       }, 1000);
     } else {
       this.setState({ speedClicked: speed, activeSpeed: speed });
-  
+
       setTimeout(() => {
         this.setState({ speedClicked: "None" });
       }, 1000);
     }
-    
   };
 
   render() {
