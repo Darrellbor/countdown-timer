@@ -7,11 +7,31 @@
   cursor: pointer;
   transition: all 1s ease;
 
+  &--dark {
+    & h5 {
+      color: $brand-color-dark;
+    }
+
+    &:hover {
+      background-color: #fff;
+    }
+  }
+
+  &--light {
+    & h5 {
+      color: #fff;
+    }
+
+    &:hover {
+      background-color: $brand-color-dark;
+    }
+  }
+
   &__inner {
     display: flex;
 
     & h5 {
-      color: #fff;
+      
       margin-top: 6px;
       display: none;
       transition-delay: 0.5s;
@@ -19,7 +39,6 @@
   }
 
   &:hover {
-    background-color: $brand-color-dark;
     max-width: max-content !important;
     border-radius: 300px !important;
 

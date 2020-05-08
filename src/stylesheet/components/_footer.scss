@@ -1,12 +1,25 @@
 .Footer {
   position: fixed;
-  background-color: #fff;
+  
   bottom: 0;
   left: 0;
   z-index: 99;
   min-height: 100px;
   width: 100%;
-  box-shadow: 0px -3px 7px 1px #0000002e;
+  
+  transition: all .8s ease;
+
+  &--dark {
+    box-shadow: 0px -3px 7px 1px #ebebeb2e;
+    background-color: $brand-color-dark;
+    color: #fff;
+  }
+
+  &--light {
+    box-shadow: 0px -3px 7px 1px #0000002e;
+    background-color: #fff;
+    color: $brand-color-dark;
+  }
 
   &__inner {
     max-width: 1200px;

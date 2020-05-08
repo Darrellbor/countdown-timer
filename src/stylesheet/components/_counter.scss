@@ -1,5 +1,13 @@
 .Counter {
-  color: $brand-color-dark;
+  transition: all 0.8s ease;
+
+  &--dark {
+    color: #fff;
+  }
+
+  &--light {
+    color: $brand-color-dark;
+  }
 
   &__inner {
     display: flex;

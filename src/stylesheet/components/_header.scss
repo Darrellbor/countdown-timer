@@ -1,5 +1,10 @@
 .Header {
   padding: 30px;
+  transition: all .8s ease;
+
+  &--dark {
+    background-color: #000;
+  }
 
   & img {
     min-width: 250px;

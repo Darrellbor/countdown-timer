@@ -2,6 +2,7 @@
 import React, { type Node, useState } from "react";
 
 type ControlsProps = {
+  theme: string,
   icon: Node,
   hoverIcon: Node,
   text: string,
@@ -15,7 +16,11 @@ const Controls = (props: ControlsProps) => {
 
   return (
     <div
-      className={`Controls ${props.controlClicked && "Controls__clicked"} `}
+      className={` ${
+        props.theme === "Dark"
+          ? "Controls Controls--dark"
+          : "Controls Controls--light"
+      } ${props.controlClicked && "Controls__clicked"} `}
       onMouseOver={() => toggleHover(true)}
       onMouseOut={() => toggleHover(false)}
       onClick={props.onClick}

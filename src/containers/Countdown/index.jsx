@@ -259,7 +259,11 @@ class Countdown extends Component {
   render() {
     return (
       <div className="Countdown">
-        <Alert isOpen={this.state.isAlertOpen} isTimeUp={this.state.isTimeUp}>
+        <Alert
+          isOpen={this.state.isAlertOpen}
+          isTimeUp={this.state.isTimeUp}
+          theme={this.state.theme}
+        >
           {this.state.alertContent}
         </Alert>
 
@@ -275,11 +279,16 @@ class Countdown extends Component {
           </audio>
         )}
 
-        <Header />
-        <div className="Countdown__body">
+        <Header theme={this.state.theme} />
+        <div
+          className={`Countdown__body ${
+            this.state.theme === "Dark" && "Countdown__body--dark"
+          }`}
+        >
           <div className="Countdown__main">
             <div className="Countdown__main__left">
               <Controls
+                theme={this.state.theme}
                 icon={<Stop theme={this.state.theme} />}
                 hoverIcon={<Stop theme={this.state.theme} hover={true} />}
                 text="Stop/reset"
@@ -290,6 +299,7 @@ class Countdown extends Component {
             </div>
             <div className="Countdown__main__center">
               <Counter
+                theme={this.state.theme}
                 minute={this.state.minute}
                 second={this.state.second}
                 isPaused={this.state.activeControl === "Paused"}
@@ -301,6 +311,7 @@ class Countdown extends Component {
             <div className="Countdown__main__right">
               {this.state.activeControl === "Paused" ? (
                 <Controls
+                  theme={this.state.theme}
                   icon={<Play theme={this.state.theme} />}
                   hoverIcon={<Play theme={this.state.theme} hover={true} />}
                   text="Resume"
@@ -309,6 +320,7 @@ class Countdown extends Component {
                 />
               ) : (
                 <Controls
+                  theme={this.state.theme}
                   icon={<Pause theme={this.state.theme} />}
                   hoverIcon={<Pause theme={this.state.theme} hover={true} />}
                   text="Pause"
@@ -323,6 +335,7 @@ class Countdown extends Component {
             <h4>Speed Controls</h4>
             <div className="Countdown__speed__inner">
               <SpeedControls
+                theme={this.state.theme}
                 controlClicked={this.state.speedClicked === "1X"}
                 active={this.state.activeSpeed === "1X"}
                 onClick={() => this.handleOnSwitchSpeed("1X")}
@@ -331,6 +344,7 @@ class Countdown extends Component {
               </SpeedControls>
 
               <SpeedControls
+                theme={this.state.theme}
                 controlClicked={this.state.speedClicked === "1.5X"}
                 active={this.state.activeSpeed === "1.5X"}
                 onClick={() => this.handleOnSwitchSpeed("1.5X")}
@@ -339,6 +353,7 @@ class Countdown extends Component {
               </SpeedControls>
 
               <SpeedControls
+                theme={this.state.theme}
                 controlClicked={this.state.speedClicked === "2X"}
                 active={this.state.activeSpeed === "2X"}
                 onClick={() => this.handleOnSwitchSpeed("2X")}
@@ -347,6 +362,7 @@ class Countdown extends Component {
               </SpeedControls>
 
               <SpeedControls
+                theme={this.state.theme}
                 controlClicked={this.state.speedClicked === "0.5X"}
                 active={this.state.activeSpeed === "0.5X"}
                 onClick={() => this.handleOnSwitchSpeed("0.5X")}
@@ -355,6 +371,7 @@ class Countdown extends Component {
               </SpeedControls>
 
               <SpeedControls
+                theme={this.state.theme}
                 controlClicked={this.state.speedClicked === "-1X"}
                 active={this.state.activeSpeed === "-1X"}
                 onClick={() => this.handleOnSwitchSpeed("-1X")}
@@ -364,7 +381,10 @@ class Countdown extends Component {
             </div>
           </div>
         </div>
-        <Footer onStart={(minute) => this.handleSetMinute(minute)} />
+        <Footer
+          theme={this.state.theme}
+          onStart={(minute) => this.handleSetMinute(minute)}
+        />
       </div>
     );
   }

@@ -3,10 +3,23 @@
   z-index: 200;
   top: 40px;
   right: 50px;
+  transition: all 0.8s ease;
 
-  &__inner {
+  &--dark {
+    background-color: #fff;
+    color: $brand-color-dark;
+
+    &.Alert__timeup {
+      color: #fff !important;
+    }
+  }
+
+  &--light {
     background-color: $brand-color-dark;
     color: #fff;
+  }
+
+  &__inner {
     padding: 10px 25px;
     border-radius: 300px;
     min-width: 150px;

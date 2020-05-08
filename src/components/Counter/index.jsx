@@ -2,6 +2,7 @@
 import React from "react";
 
 type CounterProps = {
+  theme: string,
   minute: string,
   second: string,
   isPaused: Boolean,
@@ -13,7 +14,9 @@ type CounterProps = {
 const Counter = (props: CounterProps) => {
   return (
     <div
-      className={`Counter ${props.isTimeUp && "Counter__timeup"}  ${
+      className={` ${
+        props.theme === "Dark" ? "Counter Counter--dark" : "Counter Counter--light"
+      } ${props.isTimeUp && "Counter__timeup"}  ${
         props.isTextRed && " Counter__textred"
       } ${props.isTextBlinking && " Counter__blinking"}`}
     >

@@ -3,6 +3,15 @@
     min-height: 500px;
     padding: 30px;
     max-width: 100%;
+    transition: all .8s ease;
+
+    &--dark {
+      background-color: #000;
+
+      & .Countdown__speed {
+        color: #fff;
+      }
+    }
   }
 
   &__main {

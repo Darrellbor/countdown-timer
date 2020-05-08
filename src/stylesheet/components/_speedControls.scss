@@ -1,7 +1,52 @@
 .SpeedControls {
   max-width: 100px;
   margin-right: 20px;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
+
+  &--dark {
+    color: #fff;
+
+    &.SpeedControls__active {
+      & .SpeedControls__inner {
+        background-color: #fff;
+        border: 2px solid #fff;
+        color: $brand-color-dark;
+
+        &:hover {
+          background-color: #fff;
+          color: $brand-color-dark;
+        }
+      }
+    }
+
+    & .SpeedControls__inner {
+      &:hover {
+        background-color: #89898a44;
+        color: #fff;
+      }
+    }
+  }
+
+  &--light {
+    &.SpeedControls__active {
+      & .SpeedControls__inner {
+        background-color: $brand-color-dark;
+        border: 2px solid $brand-color-dark;
+        color: #fff;
+
+        &:hover {
+          background-color: $brand-color-dark;
+          color: #fff;
+        }
+      }
+    }
+
+    & .SpeedControls__inner {
+      &:hover {
+        background-color: #282c3444;
+      }
+    }
+  }
 
   &__inner {
     border: 2px solid $brand-color;
@@ -12,16 +57,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #282c3444;
       color: $brand-color-dark;
-    }
-  }
-
-  &__active {
-    & .SpeedControls__inner {
-      background-color: $brand-color-dark;
-      border: 2px solid $brand-color-dark;
-      color: #fff;
     }
   }
 

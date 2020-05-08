@@ -28,6 +28,18 @@
       background-color: $brand-color-dark !important;
       color: #fff !important;
     }
+
+    &-dark {
+      background-color: $brand-color;
+      color: #fff;
+      border: none;
+
+      &:hover {
+        background-color: $brand-color-dark !important;
+        color: #fff !important;
+        box-shadow: 0 0 4px 2px #fff;
+      }
+    }
   }
 
   &:disabled {

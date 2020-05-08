@@ -118,5 +118,41 @@
         }
       }
     }
+
+    &--default-dark {
+      & label {
+        color: $brand-color !important;
+      }
+      
+      & .input {
+        border: 2px solid $brand-input-border;
+
+        &--focus {
+          border: 2px solid $brand-color;
+        }
+
+        &__prepend {
+          border-right: 1px solid $brand-input-border;
+        }
+      
+        &__append {
+          border-left: 1px solid $brand-input-border;
+        }
+      
+        &__item {
+          box-shadow: 0px 5px 40px #ffffff15;
+          background-color: transparent;
+          color: #fff;
+
+          &:disabled {
+            background-color: $brand-input-disabled;
+          }
+      
+          &::placeholder {
+            color: rgba(209, 209, 209, 0.658);
+          }
+        }
+      }
+    }
   }
 }

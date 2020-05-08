@@ -7,6 +7,7 @@ import Input from "../Form/Input";
 import Button from "../Form/Button";
 
 type FooterProps = {
+  theme: string,
   onStart: Function,
 };
 
@@ -67,7 +68,11 @@ const Footer = (props: FooterProps) => {
   };
 
   return (
-    <div className="Footer">
+    <div
+      className={`${
+        props.theme === "Dark" ? "Footer Footer--dark" : "Footer Footer--light"
+      }`}
+    >
       <div className="Footer__inner">
         <form onSubmit={handleOnStart}>
           <div className="row">
@@ -81,7 +86,7 @@ const Footer = (props: FooterProps) => {
                   type: "number",
                   placeholder: "Enter countdown in mins",
                   required: true,
-                  theme: "default",
+                  theme: props.theme === "Dark" ? "default-dark" : "default",
                   value: mins.value,
                   onChange: (event) =>
                     handleInputOnChange(event, {
@@ -110,7 +115,12 @@ const Footer = (props: FooterProps) => {
               />
             </div>
             <div className="col-md-3">
-              <Button disabled={!formIsValid}>Start</Button>
+              <Button
+                color={props.theme === "Dark" ? "brand-dark" : "brand"}
+                disabled={!formIsValid}
+              >
+                Start
+              </Button>
             </div>
           </div>
         </form>
