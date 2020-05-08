@@ -12,10 +12,8 @@ const Alert = (props: AlertProps) => {
   return (
     <div className={` Alert ${props.isOpen ? "Alert__open" : "Alert__close"}`}>
       <div
-        className={` ${
-          props.theme === "Dark"
-            ? "Alert__inner Alert--dark"
-            : "Alert__inner Alert--light"
+        className={`Alert__inner ${
+          props.theme === "Dark" ? "Alert--dark" : "Alert--light"
         } ${props.isTimeUp && "Alert__timeup"}`}
       >
         {props.children}

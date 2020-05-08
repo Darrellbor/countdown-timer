@@ -207,17 +207,27 @@ class Countdown extends Component {
   };
 
   handleOnPauseClick = () => {
-    this.setState({ clicked: "Pause", activeControl: "Paused" });
+    if ((this.state.minute !== "00") && (this.state.second !== "00")) {
+      this.setState({ clicked: "Pause", activeControl: "Paused" });
 
-    this.terminateCountdown();
+      this.terminateCountdown();
 
-    setTimeout(() => {
-      this.setState({
-        clicked: "None",
-        isAlertOpen: true,
-        alertContent: "Timer Paused",
-      });
-    }, 1000);
+      setTimeout(() => {
+        this.setState({
+          clicked: "None",
+          isAlertOpen: true,
+          alertContent: "Timer Paused",
+        });
+      }, 1000);
+    } else {
+      this.setState({ clicked: "Pause" });
+
+      setTimeout(() => {
+        this.setState({
+          clicked: "None",
+        });
+      }, 1000);
+    }
   };
 
   handleOnPlayClick = () => {
@@ -231,18 +241,29 @@ class Countdown extends Component {
   };
 
   handleOnStopClick = () => {
-    this.setState({ clicked: "Stop", activeControl: "Stoped" });
+    if ((this.state.minute !== "00") && (this.state.second !== "00")) {
+      this.setState({ clicked: "Stop", activeControl: "Stoped" });
 
-    this.terminateCountdown();
-    this.resetCountdown();
+      this.terminateCountdown();
+      this.resetCountdown();
+  
+      setTimeout(() => {
+        this.setState({
+          clicked: "None",
+          isAlertOpen: true,
+          alertContent: "Timer Stoped & cleared",
+        });
+      }, 1000);
+    } else {
+      this.setState({ clicked: "Stop" });
 
-    setTimeout(() => {
-      this.setState({
-        clicked: "None",
-        isAlertOpen: true,
-        alertContent: "Timer Stoped & cleared",
-      });
-    }, 1000);
+      setTimeout(() => {
+        this.setState({
+          clicked: "None",
+        });
+      }, 1000);
+    }
+    
   };
 
   handleOnSwitchSpeed = (speed) => {

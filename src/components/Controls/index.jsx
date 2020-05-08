@@ -16,10 +16,10 @@ const Controls = (props: ControlsProps) => {
 
   return (
     <div
-      className={` ${
+      className={`Controls ${
         props.theme === "Dark"
-          ? "Controls Controls--dark"
-          : "Controls Controls--light"
+          ? "Controls--dark"
+          : "Controls--light"
       } ${props.controlClicked && "Controls__clicked"} `}
       onMouseOver={() => toggleHover(true)}
       onMouseOut={() => toggleHover(false)}

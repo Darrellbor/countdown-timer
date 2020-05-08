@@ -69,8 +69,8 @@ const Footer = (props: FooterProps) => {
 
   return (
     <div
-      className={`${
-        props.theme === "Dark" ? "Footer Footer--dark" : "Footer Footer--light"
+      className={`Footer ${
+        props.theme === "Dark" ? " Footer--dark" : "Footer--light"
       }`}
     >
       <div className="Footer__inner">

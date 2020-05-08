@@ -17,9 +17,10 @@ const ThemeController = (props: ThemeControllerProps) => {
         <div
           className={` ${
             props.theme === "Dark"
-              ? "ThemeController__dark "
+              ? "ThemeController__dark"
               : "ThemeController__light"
           }`}
+          title="Switch to dark theme"
           data-setthemeto="Dark"
           onClick={props.onClick}
         >
@@ -28,9 +29,10 @@ const ThemeController = (props: ThemeControllerProps) => {
         <div
           className={` ${
             props.theme === "Dark"
-              ? "ThemeController__dark "
+              ? "ThemeController__dark"
               : "ThemeController__light"
           }`}
+          title="Switch to light theme"
           data-setthemeto="Light"
           onClick={props.onClick}
         >

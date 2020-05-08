@@ -14,8 +14,8 @@ type CounterProps = {
 const Counter = (props: CounterProps) => {
   return (
     <div
-      className={` ${
-        props.theme === "Dark" ? "Counter Counter--dark" : "Counter Counter--light"
+      className={`Counter ${
+        props.theme === "Dark" ? "Counter--dark" : "Counter--light"
       } ${props.isTimeUp && "Counter__timeup"}  ${
         props.isTextRed && " Counter__textred"
       } ${props.isTextBlinking && " Counter__blinking"}`}

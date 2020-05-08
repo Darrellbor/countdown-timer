@@ -12,10 +12,10 @@ type SpeedControlsProps = {
 const SpeedControls = (props: SpeedControlsProps) => {
   return (
     <div
-      className={` ${
+      className={`SpeedControls ${
         props.theme === "Dark"
-          ? "SpeedControls SpeedControls--dark"
-          : "SpeedControls SpeedControls--light"
+          ? "SpeedControls--dark"
+          : "SpeedControls--light"
       } ${props.controlClicked && "SpeedControls__clicked"} ${
         props.active && " SpeedControls__active"
       } `}
