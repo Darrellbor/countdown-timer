@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bf6cb9d1.chunk.css",
+    "main.js": "/static/js/main.644e5380.chunk.js",
+    "main.js.map": "/static/js/main.644e5380.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f2eb7a5a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f2eb7a5a.js.map",
+    "static/css/2.70ff3058.chunk.css": "/static/css/2.70ff3058.chunk.css",
+    "static/js/2.dbc29daa.chunk.js": "/static/js/2.dbc29daa.chunk.js",
+    "static/js/2.dbc29daa.chunk.js.map": "/static/js/2.dbc29daa.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.5da8c16c16d2df4370c39f315718226c.js": "/precache-manifest.5da8c16c16d2df4370c39f315718226c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.70ff3058.chunk.css.map": "/static/css/2.70ff3058.chunk.css.map",
+    "static/css/main.bf6cb9d1.chunk.css.map": "/static/css/main.bf6cb9d1.chunk.css.map",
+    "static/js/2.dbc29daa.chunk.js.LICENSE.txt": "/static/js/2.dbc29daa.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/static/media/body-bg.28359df2.png",
+    "static/media/countdown-complete.mp3": "/static/media/countdown-complete.15b0f60b.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f2eb7a5a.js",
+    "static/css/2.70ff3058.chunk.css",
+    "static/js/2.dbc29daa.chunk.js",
+    "static/css/main.bf6cb9d1.chunk.css",
+    "static/js/main.644e5380.chunk.js"
+  ]
+}
