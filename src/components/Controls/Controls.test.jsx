@@ -35,6 +35,10 @@ describe("Controls Component", () => {
     expect(spy.calledOnce).toBe(true);
   });
 
+  test("check if theme class is applied", () => {
+    expect(wrapper.exists(".Controls--dark")).toBeTruthy();
+  });
+
   test("Check if text is displayed", () => {
     expect(wrapper.find("h5").text()).toBe("Pause Timer");
   });

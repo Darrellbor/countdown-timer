@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Speed Controls Component renders correctly 1`] = `
+<div
+  className="SpeedControls SpeedControls--dark false  SpeedControls__active "
+  onClick={[Function]}
+>
+  <div
+    className="SpeedControls__inner"
+  >
+    1X
+  </div>
+</div>
+`;
