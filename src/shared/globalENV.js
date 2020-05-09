@@ -1,7 +1,7 @@
 const isServer = false;
 
 const clientServer = isServer
-  ? "https://countdown.netlify.app/"
+  ? "https://downtimer.netlify.app/"
   : "http://localhost:3000/";
 
 module.exports = {
