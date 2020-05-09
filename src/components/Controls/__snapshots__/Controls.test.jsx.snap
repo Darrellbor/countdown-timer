@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls Component renders correctly 1`] = `
+<div
+  className="Controls Controls--dark false "
+  onClick={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <div
+    className="Controls__inner"
+  >
+    <span>
+      <Pause
+        hover={false}
+        theme="Dark"
+      />
+    </span>
+    <h5
+      id="Controls__inner__right"
+    >
+      Pause Timer
+    </h5>
+  </div>
+</div>
+`;
