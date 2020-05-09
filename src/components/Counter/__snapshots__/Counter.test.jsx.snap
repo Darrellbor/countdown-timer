@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Speed Controls Component renders correctly 1`] = `
+<div
+  className="Counter Counter--dark  Counter__timeup   Counter__textred  Counter__blinking"
+>
+  <div
+    className="Counter__inner"
+  >
+    <div
+      className="Counter__minute"
+    >
+      00
+    </div>
+    <div
+      className="Counter__colon"
+    >
+      :
+    </div>
+    <div
+      className=" Counter__second Counter__paused"
+    >
+      31
+    </div>
+  </div>
+</div>
+`;

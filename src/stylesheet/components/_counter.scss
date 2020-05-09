@@ -22,7 +22,7 @@
     color: $color-danger !important;
   }
 
-  &__changed {
+  &__paused {
     animation-name: counterChange;
     animation-duration: 0.4s;
     animation-iteration-count: infinite;

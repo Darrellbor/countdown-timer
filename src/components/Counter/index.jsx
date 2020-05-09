@@ -16,7 +16,7 @@ const Counter = (props: CounterProps) => {
     <div
       className={`Counter ${
         props.theme === "Dark" ? "Counter--dark" : "Counter--light"
-      } ${props.isTimeUp && "Counter__timeup"}  ${
+      } ${props.isTimeUp && " Counter__timeup"}  ${
         props.isTextRed && " Counter__textred"
       } ${props.isTextBlinking && " Counter__blinking"}`}
     >
@@ -27,7 +27,7 @@ const Counter = (props: CounterProps) => {
           className={` ${
             !props.isPaused
               ? "Counter__second"
-              : "Counter__second Counter__changed"
+              : "Counter__second Counter__paused"
           }`}
         >
           {props.second}
