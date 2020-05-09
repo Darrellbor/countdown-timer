@@ -24,8 +24,6 @@ Build a countdown timer in React Native with controls to add time, speed up / sl
 - The look of the countdown timer should have a production-ready clean/modern
   aesthetic. Feel free to creatively stylize the elements.
 - Extra credit: Play a sound as the timer ends.
-- Export as a git repository (either as a .zip file or a link to a public repository) with
-  screenshots in the README.md file.
 
 ## Approach & Solution
 
