@@ -79,12 +79,12 @@ This invokes typechecking using flow and it check all files with `//@flow` at th
 see [flow docs](https://flow.org/en/docs/) for more information.
 
 ## Screenshots
-![Dark theme](./src/assets/screenshots/Screenshot1.png "Dark theme")
-![Light theme](./src/assets/screenshots/Screenshot2.png "Light theme")
-![Light theme](./src/assets/screenshots/Screenshot3.png "Light theme")
-![Dark theme](./src/assets/screenshots/Screenshot4.png "Dark theme")
-![Dark theme](./src/assets/screenshots/Screenshot5.png "Dark theme")
-![Dark theme](./src/assets/screenshots/Screenshot6.png "Dark theme")
-![Dark theme](./src/assets/screenshots/Screenshot7.png "Dark theme")
-![Light theme](./src/assets/screenshots/Screenshot8.png "Light theme")
-![Light theme](./src/assets/screenshots/Screenshot9.png "Light theme")
+![Dark theme](./src/assets/screenshots/Screenshot1.png "Dark theme") <br />
+![Light theme](./src/assets/screenshots/Screenshot2.png "Light theme") <br />
+![Light theme](./src/assets/screenshots/Screenshot3.png "Light theme") <br />
+![Dark theme](./src/assets/screenshots/Screenshot4.png "Dark theme") <br />
+![Dark theme](./src/assets/screenshots/Screenshot5.png "Dark theme") <br />
+![Dark theme](./src/assets/screenshots/Screenshot6.png "Dark theme") <br />
+![Dark theme](./src/assets/screenshots/Screenshot7.png "Dark theme") <br />
+![Light theme](./src/assets/screenshots/Screenshot8.png "Light theme") <br />
+![Light theme](./src/assets/screenshots/Screenshot9.png "Light theme") <br />
