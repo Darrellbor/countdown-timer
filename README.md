@@ -1,5 +1,9 @@
 # Countdown Timer Application
 
+## The Live Application
+
+Test and play around with the production version of the application on [https://downtimer.netlify.app](https://downtimer.netlify.app)
+
 ## The Problem
 
 Build a countdown timer in React Native with controls to add time, speed up / slow down the countdown, pause and resume.
