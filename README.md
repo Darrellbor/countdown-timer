@@ -79,4 +79,4 @@ This invokes typechecking using flow and it check all files with `//@flow` at th
 see [flow docs](https://flow.org/en/docs/) for more information.
 
 ## Screenshots
-![Dark theme](../src/assets/screenshots/Screenshot1.png "Dark theme")
+![Dark theme](./src/assets/screenshots/Screenshot1.png "Dark theme")
