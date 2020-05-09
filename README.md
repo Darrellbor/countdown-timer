@@ -1,4 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Countdown Timer Application
+
+## The Problem
+
+Build a countdown timer in React Native with controls to add time, speed up / slow down the countdown, pause and resume.
+
+## Requirements
+
+* The user should be able to enter a # of minutes (positive integer) and click a “Start” button to initialize the countdown.
+* Timer format: MM:SS
+* The user should be able to pause & resume the countdown using pause/resume
+buttons.
+* While the countdown timer is active, the user should be able to speed up / slow
+down the speed at the following rates: -- 1.0X (normal speed, selected by
+default) -- 1.5X -- 2X
+* When half of the selected duration has been passed, display a string of text
+above the countdown timer reading: “More than halfway there!”
+* When the countdown timer reaches 0, this text should change to: “Time’s up!”. When the countdown is within 20 seconds of ending, the countdown timer text
+should turn red.
+* At 10 seconds, the text should start blinking.
+* Include unit testing for applicable functionality.
+* The countdown timer functionality should be appropriately divided into well-
+defined components.
+* The look of the countdown timer should have a production-ready clean/modern
+aesthetic. Feel free to creatively stylize the elements.
+* Extra credit: Play a sound as the timer ends.
+* Export as a git repository (either as a .zip file or a link to a public repository) with
+screenshots in the README.md file.
+
+## Approach & Solution
+
+* Solution implemented using create-react-app
+* Styling includes bootstrap and custom styles using sass & scss
+* Style guide adopted is BEM
+* Solution is broken down into 3 major components
+  * `Counter:` receives minute and second props among others and displays count appropriately
+  * `Controls:` triggers events that affect the counter such as pause or stop
+  * `Speed Controls:` triggers events that affect the speed of the counter
+* Dark theme mode is enabled through the use of props & localstorage
+* All icons are custom built using figma, exported as svg and implemented as components in the icons folder
+* Folders within the source folder includes:
+  * `assets:` This holds all assets which may be images, sounds, css etc...
+  * `Components:` This folder holds all stateless components and components that would be reused
+  * `Containers:` This folder holds all stateful components and serve as pages
+  * `Shared:` This folder holds all scripts that would be used across containers, components and the app in general
+  * `Stylesheet:` This folder holds the 7-in-1 structure for implementing sass and scss
+* Type checking is done using flow and is implemented across all components within the components folder
+* Unit and integration tests is done using jest & enzyme
 
 ## Available Scripts
 
@@ -27,42 +74,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `npm run flow`
+This invokes typechecking using flow and it check all files with `//@flow` at the beginning of the file and ensures all props passed are of the defined type as well as for state.<br />
+see [flow docs](https://flow.org/en/docs/) for more information.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Screenshots
+![Dark theme](../src/assets/screenshots/Screenshot1.png "Dark theme")
