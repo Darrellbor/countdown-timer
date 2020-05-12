@@ -108,7 +108,7 @@ const Footer = (props: FooterProps) => {
                 focused={mins.focused}
                 message={
                   !mins.valid && !mins.focused && mins.value !== ""
-                    ? "The number of minutes is required and should be less than 1 hour!"
+                    ? "The number of minutes is required and should be less than 1 hour and be a positive whole number!"
                     : ""
                 }
                 messageClassName={mins.messageClassName}

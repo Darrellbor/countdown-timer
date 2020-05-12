@@ -84,9 +84,9 @@ class Countdown extends Component {
 
     //check speed
     if (speed === "0.5X") {
-      timerSpeed = 2000;
+      timerSpeed = 1500;
     } else if (speed === "-1X") {
-      timerSpeed = 4000;
+      timerSpeed = 2000;
     }
 
     this.timer = setInterval(() => {
@@ -108,7 +108,7 @@ class Countdown extends Component {
 
       if (state.activeSpeed === "1.5X") {
         //check for less than 0 second
-        if (second - 4 <= 0) {
+        if (second - 1.5 <= 0) {
           second = "58";
           minute -= 1;
 
@@ -118,11 +118,11 @@ class Countdown extends Component {
             return;
           }
         } else {
-          second -= 4;
+          second = Math.floor(second - 1.5);
         }
       } else if (state.activeSpeed === "2X") {
         //check for less than 0 second
-        if (second - 6 <= 0) {
+        if (second - 2 <= 0) {
           second = "59";
           minute -= 1;
 
@@ -132,7 +132,7 @@ class Countdown extends Component {
             return;
           }
         } else {
-          second -= 6;
+          second -= 2;
         }
       } else {
         //check for less than 0 second

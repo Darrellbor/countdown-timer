@@ -158,24 +158,24 @@ describe("Countdown Component", () => {
     expect(wrapper.state("minute")).toBe("06");
   });
 
-  test("initializeCountdown: should update second state every 2s on 0.5x speed", () => {
+  test("initializeCountdown: should update second state every 1.5s on 0.5x speed", () => {
     instance.handleSetMinute(7);
 
     jest.useFakeTimers();
     expect(wrapper.state("minute")).toBe(7);
     instance.initializeCountdown("0.5X");
-    jest.runOnlyPendingTimers(2000);
+    jest.runOnlyPendingTimers(1500);
     expect(wrapper.state("minute")).toBe("06");
     expect(wrapper.state("second")).toBe("59");
   });
 
-  test("initializeCountdown: should update second state every 4s on -1x speed", () => {
+  test("initializeCountdown: should update second state every 2s on -1x speed", () => {
     instance.handleSetMinute(9);
 
     jest.useFakeTimers();
     expect(wrapper.state("minute")).toBe(9);
     instance.initializeCountdown("-1X");
-    jest.runOnlyPendingTimers(4000);
+    jest.runOnlyPendingTimers(2000);
     expect(wrapper.state("minute")).toBe("08");
     expect(wrapper.state("second")).toBe("59");
   });
