@@ -118,7 +118,7 @@ class Countdown extends Component {
             return;
           }
         } else {
-          second = Math.floor(second - 1.5);
+          second -= 1.5;
         }
       } else if (state.activeSpeed === "2X") {
         //check for less than 0 second
@@ -332,7 +332,11 @@ class Countdown extends Component {
               <Counter
                 theme={this.state.theme}
                 minute={this.state.minute}
-                second={this.state.second}
+                second={
+                  this.state.second < 10
+                    ? "0" + Math.round(this.state.second)
+                    : Math.round(this.state.second)
+                }
                 isPaused={this.state.activeControl === "Paused"}
                 isTextRed={this.state.isTextRed}
                 isTextBlinking={this.state.isTextBlinking}
